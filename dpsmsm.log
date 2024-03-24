@@ -1,0 +1,26 @@
+2024-03-24 07:32:46,447:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 07:32:46,447:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 07:32:46,447:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 07:34:09,944:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 07:34:09,944:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 07:34:09,944:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 07:34:16,261:WARNING - django.request log.py (line 241). Not Found: /favicon.ico
+2024-03-24 07:34:16,261:WARNING - django.server basehttp.py (line 212). "GET /favicon.ico HTTP/1.1" 404 2118
+2024-03-24 07:35:19,412:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 07:35:19,412:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 07:35:19,413:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 08:43:43,437:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 08:43:43,437:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 08:43:43,437:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 10:43:01,913:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 10:43:01,913:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 10:43:01,913:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 10:44:38,765:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 10:44:38,766:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 10:44:38,766:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 10:45:02,096:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 10:45:02,096:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 10:45:02,096:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message
+2024-03-24 10:46:36,878:DEBUG - dpsmsm.project.urls urls.py (line 6). This is a debug message
+2024-03-24 10:46:36,878:INFO - dpsmsm.project.urls urls.py (line 7). This is a info message
+2024-03-24 10:46:36,878:WARNING - dpsmsm.project.urls urls.py (line 8). This is a warning message

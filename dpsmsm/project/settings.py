@@ -12,17 +12,25 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+# Take environment variables from .env file
+environ.Env.read_env(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(bb0pibl@gzroe%ip_97#2nsjnh&&46bphlg9f1937rt8lg&d%'
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -115,3 +123,60 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# logging
+# ===========================
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime}:{levelname} - {module} {message}',
+            'style': '{'
+        },
+        'simple': {
+            'format': '{levelname}: {name} - {message}',
+            'style': '{'
+        },
+        'standard': {
+            'format': '{asctime}:{levelname} - {name} {module}.py (line {lineno:d}). {message}',
+            'style': '{'
+        }
+    },
+    'root': {
+        'level': env('DJANGO_LOG_LEVEL'),
+        'handlers': ['console', 'file'],
+    },
+    'handlers': {
+        'console': {
+            'level': env('DJANGO_LOG_LEVEL'),
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'filters': [],
+        },
+        'file': {
+            'level': env('DJANGO_LOG_LEVEL'),
+            'class': 'logging.FileHandler',
+            'filename': env('DJANGO_LOG_FILE'),
+            'formatter': 'standard',
+            'filters': [],
+        },
+    },
+    'loggers': {
+        logger_name: {
+            'level': env('DJANGO_LOGGERS_LEVEL'),
+            'propagate': True,
+        } for logger_name in
+        ('django', 'django.request', 'django.db.backends', 'django.template', 'dpsmsm', 'urllib3', 'asyncio')
+    },
+}
+
+# colorlog
+# ============================
+LOGGING['formatters']['colored'] = {
+    '()': 'colorlog.ColoredFormatter',
+    'format': '%(log_color)s%(levelname)s: %(name)s - %(bold_white)s%(message)s',
+}
+LOGGING['loggers']['dpsmsm']['level'] = 'DEBUG'
+LOGGING['handlers']['console']['level'] = 'DEBUG'
+LOGGING['handlers']['console']['formatter'] = 'colored'
