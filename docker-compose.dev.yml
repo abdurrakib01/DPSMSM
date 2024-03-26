@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:14.2-alpine
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: dpsmsm_db
+      POSTGRES_USER: dpsmsm_user
+      POSTGRES_PASSWORD: dpsmsm_password
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+
+volumes:
+  postgressql-data:
+    driver: local

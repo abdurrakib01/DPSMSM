@@ -80,8 +80,14 @@ WSGI_APPLICATION = 'dpsmsm.project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.dp.backends.postgresql',
+        'NAME': 'dpsmsm_db',
+        'USER': 'dpsmsm_user',
+        'PASSWORD': 'dpsmsm_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': True,
+        'CONN_MAX_AGE': 600,
     }
 }
 
