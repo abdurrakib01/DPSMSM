@@ -28,3 +28,9 @@ lint:
 
 .PHONY: update
 update: install migrate migrations install-pre-commit ;
+
+
+.PHONY: up-dependencies-only
+up-dependencies-only:
+	sudo systemctl stop postgresql
+	docker-compose -f docker-compose.dev.yml up --force-recreate db
